@@ -1,5 +1,7 @@
 " Environment {
   set nocompatible
+  filetype on
+  filetype off
   filetype plugin indent on
 " }
 
@@ -17,13 +19,13 @@
   NeoBundle 'scrooloose/nerdtree'         " A tree explorer plugin
   NeoBundle 'scrooloose/nerdcommenter'    " Vim plugin for intensely orgasmic commenting
   NeoBundle 'kien/ctrlp.vim'              " Fuzzy file, buffer, mru, tag, etc finder
-  NeoBundle 'mattn/zencoding-vim'
-  NeoBundle 'hail2u/vim-css3-syntax'
-  NeoBundle 'skammer/vim-css-color'
-  NeoBundle 'wavded/vim-stylus'
-  NeoBundle 'digitaltoad/vim-jade'
-  NeoBundle 'pangloss/vim-javascript'
-  NeoBundle 'tpope/vim-fugitive'
+  NeoBundle 'mattn/zencoding-vim'         " zen-coding for vim: http://code.google.com/p/zen-coding/
+  NeoBundle 'hail2u/vim-css3-syntax'      " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
+  NeoBundle 'skammer/vim-css-color'       " Highlight colors in css files
+  NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
+  NeoBundle 'digitaltoad/vim-jade'        " Vim Jade template engine syntax highlighting and indention
+  NeoBundle 'pangloss/vim-javascript'     " Vastly improved vim's javascript indentation
+  NeoBundle 'tpope/vim-fugitive'          " A Git wrapper so awesome, it should be illegal
 
   " Github `vim-scripts`
   NeoBundle 'sudo.vim'
@@ -82,12 +84,12 @@
   if has('statusline')
     set laststatus=2
     " Broken down into easily includeable segments
-    set statusline=%<%f\    " Filename
-    set statusline+=%w%h%m%r " Options
-    set statusline+=%{fugitive#statusline()} "  Git Hotness
-    set statusline+=\ [%{&ff}/%Y]            " filetype
-    set statusline+=\ [%{getcwd()}]          " current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%  " Right aligned file nav info
+    set statusline=%<%f\                      " Filename
+    set statusline+=%w%h%m%r                  " Options
+    set statusline+=%{fugitive#statusline()}  " Git Hotness
+    set statusline+=\ [%{&ff}/%Y]             " filetype
+    set statusline+=\ [%{getcwd()}]           " current dir
+    set statusline+=%=%-14.(%l,%c%V%)\ %p%%   " Right aligned file nav info
   endif
 
   set rnu                         " relative line number
@@ -99,7 +101,7 @@
   set showmatch                   " show matching brackets/parenthesis
   set incsearch                   " find as you type search
   set wildmenu                    " show list instead of just completing
-  set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all.
+  set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all
   set whichwrap=b,s,h,l,<,>,[,]   " backspace and cursor keys wrap to
   set scrolljump=5                " lines to scroll when cursor leaves screen
   set scrolloff=3                 " minimum lines to keep above and below cursor
@@ -139,10 +141,10 @@
   nmap <leader>f8 :set foldlevel=8<CR>
   nmap <leader>f9 :set foldlevel=9<CR>
 
-  nmap <tab> 		v>
-  nmap <s-tab> 	v<
-  vmap <tab> 		>gv 
-  vmap <s-tab> 	<gv
+  nmap <tab>    v>
+  nmap <s-tab>  v<
+  vmap <tab>    >gv
+  vmap <s-tab>  <gv
 
   nnoremap / /\v
   vnoremap / /\v
@@ -157,7 +159,7 @@
   nmap <leader>nt :NERDTreeFind<CR>
 
   let NERDTreeShowBookmarks = 1
-  let NERDTreeIgnore = ['\.pyc', '\~$', '\.swo$', '\.swp$', '\.git', '\.hg', '\.svn', '\.bzr']
+  let NERDTreeIgnore = ['\.pyc','\~$','\.swo$','\.swp$','\.git','\.hg','\.svn','\.bzr']
   let NERDTreeChDirMode = 0
   let NERDTreeQuitOnOpen = 1
   let NERDTreeMouseMode = 2
@@ -174,6 +176,12 @@
   let g:syntastic_python_checker = 'flake8'
   let g:syntastic_python_checker_args = '--ignore="E401,E501"'
   let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
+" }
+
+" vimScript {
+  let g:html_indent_inctags = 'html,body,head,tbody'
+  let g:html_indent_script1 = 'inc'
+  let g:html_indent_style1 = 'inc'
 " }
 
 " neocomplcache {
@@ -201,13 +209,14 @@
   nmap <silent> <leader>r :CtrlPMRU<cr>
 " }
 
+" CSSColor {
+  let g:cssColorVimDoNotMessMyUpdatetime = 1
+" }
+
 " Fugitive {
-  nnoremap <silent> <leader>gs :Gstatus<CR>
-  nnoremap <silent> <leader>gd :Gdiff<CR>
-  nnoremap <silent> <leader>gc :Gcommit<CR>
-  nnoremap <silent> <leader>gb :Gblame<CR>
-  nnoremap <silent> <leader>gl :Glog<CR>
-  nnoremap <silent> <leader>gp :Git push<CR>
+  nnoremap <silent> <leader>st :Gstatus<CR>
+  nnoremap <silent> <leader>di :Gdiff<CR>
+  autocmd QuickFixCmdPost *grep* cwindow
 "}
 
 " Autocmd {
