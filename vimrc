@@ -19,7 +19,9 @@
   NeoBundle 'scrooloose/nerdtree'         " A tree explorer plugin
   NeoBundle 'scrooloose/nerdcommenter'    " Vim plugin for intensely orgasmic commenting
   NeoBundle 'kien/ctrlp.vim'              " Fuzzy file, buffer, mru, tag, etc finder
+  NeoBundle 'Lokaltog/vim-powerline'      " The ultimate vim statusline utility
   NeoBundle 'mattn/zencoding-vim'         " zen-coding for vim: http://code.google.com/p/zen-coding/
+  NeoBundle 'ervandew/supertab'           " Perform all your vim insert mode completions with Tab
   NeoBundle 'hail2u/vim-css3-syntax'      " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
   NeoBundle 'skammer/vim-css-color'       " Highlight colors in css files
   NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
@@ -28,7 +30,7 @@
   NeoBundle 'tpope/vim-fugitive'          " A Git wrapper so awesome, it should be illegal
 
   " Github `vim-scripts`
-  NeoBundle 'sudo.vim'
+  NeoBundle 'sudo.vim'                    " Allows one to edit a file with prevledges from an unprivledged session
 
   " Auto-Installation
   if neobundle#exists_not_installed_bundles()
@@ -71,8 +73,14 @@
 " }
 
 " UI {
-	" colorscheme molokai
-	colorscheme solarized
+  if has('gui_macvim')
+    colorscheme solarized
+  else
+    let g:solarized_termcolors=256
+    set background=dark
+    colorscheme solarized
+	  "colorscheme molokai
+  endif
 
   if has('cmdline_info')
     set ruler                   " show the ruler
@@ -83,13 +91,6 @@
 
   if has('statusline')
     set laststatus=2
-    " Broken down into easily includeable segments
-    set statusline=%<%f\                      " Filename
-    set statusline+=%w%h%m%r                  " Options
-    set statusline+=%{fugitive#statusline()}  " Git Hotness
-    set statusline+=\ [%{&ff}/%Y]             " filetype
-    set statusline+=\ [%{getcwd()}]           " current dir
-    set statusline+=%=%-14.(%l,%c%V%)\ %p%%   " Right aligned file nav info
   endif
 
   set rnu                         " relative line number
@@ -115,12 +116,12 @@
     set guioptions-=T           " remove the MacVim's toolbar
     if has('gui_macvim')
       set transparency=5        " Make the window slightly transparent
-     endif
+    endif
 
     if has("gui_gtk2")
-      set guifont=Consolas\ 13,Monaco\ 14
+      set guifont=Monaco\ 13,Consolas\ 13
     else
-      set guifont=Consolas:h13,Monaco:h13
+      set guifont=Monaco:h13,Consolas:h13
     endif
   endif
 " }
@@ -218,6 +219,11 @@
   nnoremap <silent> <leader>di :Gdiff<CR>
   autocmd QuickFixCmdPost *grep* cwindow
 "}
+
+" Powerline {
+  let g:Powerline_symbols = 'fancy'
+  let g:Powerline_colorscheme = 'solarized256'
+" }
 
 " Autocmd {
   autocmd! bufwritepost vimrc source ~/.vim/vimrc
