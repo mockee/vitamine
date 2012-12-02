@@ -11,6 +11,7 @@ Vim plugins, scripts and resources for my daily use.
   NeoBundle 'scrooloose/nerdtree'         " A tree explorer plugin
   NeoBundle 'scrooloose/nerdcommenter'    " Vim plugin for intensely orgasmic commenting
   NeoBundle 'kien/ctrlp.vim'              " Fuzzy file, buffer, mru, tag, etc finder
+  NeoBundle 'myusuf3/numbers.vim'         " A vim plugin for better line numbers
   NeoBundle 'Lokaltog/vim-powerline'      " The ultimate vim statusline utility
   NeoBundle 'mattn/zencoding-vim'         " zen-coding for vim: http://code.google.com/p/zen-coding/
   NeoBundle 'ervandew/supertab'           " Perform all your vim insert mode completions with Tab
@@ -19,9 +20,13 @@ Vim plugins, scripts and resources for my daily use.
   NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
   NeoBundle 'digitaltoad/vim-jade'        " Vim Jade template engine syntax highlighting and indention
   NeoBundle 'pangloss/vim-javascript'     " Vastly improved vim's javascript indentation
+  NeoBundle 'plasticboy/vim-markdown'     " Syntax highlighting and matching rules for Markdown
   NeoBundle 'tpope/vim-fugitive'          " A Git wrapper so awesome, it should be illegal
+  NeoBundle 'tpope/vim-surround'          " quoting/parenthesizing made simple
 
   " Github `vim-scripts`
   NeoBundle 'sudo.vim'                    " Allows one to edit a file with prevledges from an unprivledged session
+  NeoBundle 'ack.vim'                     " Plugin for the Perl module / CLI script 'ack'
+  NeoBundle 'EasyMotion'                  " Vim motions on speed!
 " }
 ```
