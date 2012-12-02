@@ -1,3 +1,6 @@
 .netrwhist
+undo/
+views/
+backup/
 bundle/*
 !bundle/neobundle.vim
