@@ -1,8 +1,12 @@
+" Vitamine {
+"   Maintainer: Kaavie <mockee at gmail.com>
+"   Notes: http://mockee.com
+" }
+
 " Environment {
   set nocompatible
   filetype on
   filetype off
-  filetype plugin indent on
 " }
 
 " NeoBundles {
@@ -19,6 +23,7 @@
   NeoBundle 'scrooloose/nerdtree'         " A tree explorer plugin
   NeoBundle 'scrooloose/nerdcommenter'    " Vim plugin for intensely orgasmic commenting
   NeoBundle 'kien/ctrlp.vim'              " Fuzzy file, buffer, mru, tag, etc finder
+  NeoBundle 'myusuf3/numbers.vim'         " A vim plugin for better line numbers
   NeoBundle 'Lokaltog/vim-powerline'      " The ultimate vim statusline utility
   NeoBundle 'mattn/zencoding-vim'         " zen-coding for vim: http://code.google.com/p/zen-coding/
   NeoBundle 'ervandew/supertab'           " Perform all your vim insert mode completions with Tab
@@ -27,10 +32,14 @@
   NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
   NeoBundle 'digitaltoad/vim-jade'        " Vim Jade template engine syntax highlighting and indention
   NeoBundle 'pangloss/vim-javascript'     " Vastly improved vim's javascript indentation
+  NeoBundle 'plasticboy/vim-markdown'     " Syntax highlighting and matching rules for Markdown
   NeoBundle 'tpope/vim-fugitive'          " A Git wrapper so awesome, it should be illegal
+  NeoBundle 'tpope/vim-surround'          " quoting/parenthesizing made simple
 
   " Github `vim-scripts`
   NeoBundle 'sudo.vim'                    " Allows one to edit a file with prevledges from an unprivledged session
+  NeoBundle 'ack.vim'                     " Plugin for the Perl module / CLI script 'ack'
+  NeoBundle 'EasyMotion'                  " Vim motions on speed!
 
   " Auto-Installation
   if neobundle#exists_not_installed_bundles()
@@ -41,12 +50,14 @@
 " }
 
 " General {
-  syntax on           " syntax highlighting
-  set mouse=a         " automatically enable mouse usage
+  syntax on                  " syntax highlighting
+  filetype plugin indent on  " automatically detect file types
+  set mouse=a                " automatically enable mouse usage
+  set mousehide              " hide the mouse cursor while typing
   set encoding=utf-8
+  scriptencoding utf-8
   set fileencodings=utf-8,ucs-bom,gb18030,gbk,gb2312,cp936
 
-  scriptencoding utf-8
   if has ('x') && has ('gui') " on Linux use + register for copy-paste
     set clipboard=unnamedplus
   elseif has ('gui') " one mac and windows, use * register for copy-paste
@@ -70,17 +81,28 @@
   set diffopt+=iwhite,vertical    " ignore the difference of indents
   set matchpairs=(:),{:},[:],<:>
   set foldmethod=marker
+  set colorcolumn=80
+
+  " Remove trailing whitespaces and ^M chars
+  autocmd BufWritePre <buffer> call StripTrailingWhitespace()
+  autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 " }
 
 " UI {
+  set tabpagemax=15
+  set background=dark
+
   if has('gui_macvim')
     colorscheme solarized
   else
     let g:solarized_termcolors=256
-    set background=dark
     colorscheme solarized
 	  "colorscheme molokai
   endif
+
+  let g:solarized_termtrans=1
+  let g:solarized_contrast='high'
+  let g:solarized_visibility='high'
 
   if has('cmdline_info')
     set ruler                   " show the ruler
@@ -100,6 +122,7 @@
   set backspace=indent,eol,start  " backspace for dummies
   set smartcase                   " case sensitive when uc present
   set showmatch                   " show matching brackets/parenthesis
+  set hlsearch                    " highlight search terms
   set incsearch                   " find as you type search
   set wildmenu                    " show list instead of just completing
   set wildmode=list:longest,full  " command <Tab> completion, list matches, then longest common part, then all
@@ -142,6 +165,7 @@
   nmap <leader>f8 :set foldlevel=8<CR>
   nmap <leader>f9 :set foldlevel=9<CR>
 
+  " Easy indent for code blocks
   nmap <tab>    v>
   nmap <s-tab>  v<
   vmap <tab>    >gv
@@ -151,7 +175,10 @@
   vnoremap / /\v
 
   " clearing highlighted search
-  nmap <silent> <leader>/ :nohlsearch<CR>
+  nmap <silent> <leader><space> :nohlsearch<CR>
+
+  " toggle between relative and absolute numbering
+  nnoremap <F3> :NumbersToggle<CR>
 " }
 
 " NerdTree {
@@ -186,7 +213,12 @@
 " }
 
 " neocomplcache {
+  let g:acp_enableAtStartup = 0
   let g:neocomplcache_enable_at_startup = 1
+  let g:neocomplcache_enable_smart_case = 1
+  let g:neocomplcache_enable_camel_case_completion = 1
+  let g:neocomplcache_enable_underbar_completion = 1
+  let g:neocomplcache_min_syntax_length = 3
 " }
 
 " nerdcommenter {
@@ -210,6 +242,10 @@
   nmap <silent> <leader>r :CtrlPMRU<cr>
 " }
 
+" Ack {
+  nnoremap <leader>/ :Ack
+" }
+
 " CSSColor {
   let g:cssColorVimDoNotMessMyUpdatetime = 1
 " }
@@ -225,6 +261,58 @@
   let g:Powerline_colorscheme = 'solarized256'
 " }
 
+" EasyMotion {
+  let g:EasyMotion_leader_key = '<Leader>'
+
+  " Compatible with `solarized` colorscheme
+  hi link EasyMotionTarget ErrorMsg
+  hi link EasyMotionShade  Comment
+" }
+
 " Autocmd {
   autocmd! bufwritepost vimrc source ~/.vim/vimrc
+" }
+
+" Functions {
+  function! StripTrailingWhitespace()
+    " Preparation: save last search, and cursor position.
+    let _s=@/
+    let l = line('.')
+    let c = col('.')
+    " do the business:
+    %s/\s\+$//e
+    " clean up: restore previous search history, and cursor position
+    let @/=_s
+    call cursor(l, c)
+  endfunction
+
+  function! InitializeDirectories()
+    let parent = $HOME
+    let prefix = '.vim'
+    let dir_list = {
+          \ 'backup': 'backupdir',
+          \ 'views': 'viewdir',
+          \ 'swap': 'directory' }
+
+    if has('persistent_undo')
+      let dir_list['undo'] = 'undodir'
+    endif
+
+    for [dirname, settingname] in items(dir_list)
+      let directory = parent . '/' . prefix . dirname . '/'
+      if exists('*mkdir')
+        if !isdirectory(directory)
+          call mkdir(directory)
+        endif
+      endif
+      if !isdirectory(directory)
+        echo 'Warning: Unable to create backup directory: ' . directory
+        echo 'Try: mkdir -p ' . directory
+      else
+        let directory = substitute(directory, ' ', '\\\\ ', 'g')
+        exec 'set ' . settingname . '=' . directory
+      endif
+    endfor
+  endfunction
+  call InitializeDirectories()
 " }
