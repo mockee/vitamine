@@ -2,6 +2,24 @@
 
 Vim plugins, scripts and resources for my daily use.
 
+## Installation
+
+1. Clone Vitamine:
+
+  ```bash
+  $ git clone git@github.com:mockee/vitamine.git ~/.vim & cd ~/.vim
+  ```
+
+2. Fetch submodule - NeoBundle:
+
+  ```bash
+  $ git submodule init & git submodule update
+  ```
+  
+3. Launch MacVim or Vim, plugins and scripts will be installed automatically.
+
+## Configured Bundles:
+
 ```viml
 " NeoBundles {
   " Github Repos
