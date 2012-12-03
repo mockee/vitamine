@@ -116,7 +116,7 @@
   endif
 
   set rnu                         " relative line number
-  set numberwidth=4               " set the width of line number "gutter" column
+  set numberwidth=4               " set the width of line number gutter column
   set linespace=2                 " set spaces between rows
   set ignorecase                  " case insensitive search
   set backspace=indent,eol,start  " backspace for dummies
@@ -201,6 +201,10 @@
 " }
 
 " SyntaxCheckers {
+  let g:syntastic_mode_map = {
+    \ 'mode': 'active',
+    \ 'passive_filetypes': ['html'] }
+
   let g:syntastic_python_checker = 'flake8'
   let g:syntastic_python_checker_args = '--ignore="E401,E501"'
   let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
