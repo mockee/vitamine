@@ -21,6 +21,8 @@ Vim plugins, scripts and resources for my daily use.
   
 3. Launch MacVim or Vim, plugins and scripts will be installed automatically.
 
+4. Download & install patched font Monaco for Vim-Powerline. [OSX](https://gist.github.com/1838072) / [Linux](https://gist.github.com/1634235)
+
 ## Configured Bundles:
 
 ```viml
