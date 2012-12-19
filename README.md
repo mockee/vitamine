@@ -16,9 +16,9 @@ Vim plugins, scripts and resources for my daily use.
 
 2. Fetch submodule - NeoBundle:
   ```bash
-  $ cd ~/.vim & git submodule init & git submodule update
+  $ cd ~/.vim && git submodule init && git submodule update
   ```
-  
+
 3. Launch MacVim or Vim, plugins and scripts will be installed automatically.
 
 ## Configured Bundles:
