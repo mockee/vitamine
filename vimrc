@@ -69,6 +69,7 @@
   set virtualedit=onemore         " allow for cursor beyond last character
   set history=800                 " Store a ton of history (default is 20)
   set hidden                      " allow buffer switching without saving
+  "set autochdir                   " change directory to the current window
 " }
 
 " Formatting {
