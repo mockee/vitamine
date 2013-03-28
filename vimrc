@@ -87,6 +87,8 @@
   " Remove trailing whitespaces and ^M chars
   autocmd BufWritePre <buffer> call StripTrailingWhitespace()
   autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd FileType java setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
+  autocmd FileType xml setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 " }
 
 " UI {
