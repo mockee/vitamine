@@ -237,7 +237,7 @@
   let g:ctrlp_working_path_mode = 'ra'
   let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 
-  set wildignore+=*/tmp/*,*.so,*.swp,*.zip
+  set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.class,*.pyc
 
   if has("gui_macvim")
     nnoremap <silent> <D-r> :CtrlPMRU<CR>
