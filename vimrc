@@ -204,7 +204,7 @@
 " SyntaxCheckers {
   let g:syntastic_mode_map = {
     \ 'mode': 'active',
-    \ 'passive_filetypes': ['html'] }
+    \ 'passive_filetypes': ['html','java'] }
 
   let g:syntastic_python_checker = 'flake8'
   let g:syntastic_python_checker_args = '--ignore="E401,E501"'
