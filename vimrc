@@ -247,6 +247,7 @@
 
   nmap <silent> <leader>t :CtrlP<cr>
   nmap <silent> <leader>r :CtrlPMRU<cr>
+  nmap <silent> <leader>m :CtrlPMixed<cr>
 " }
 
 " Ack {
