@@ -96,17 +96,12 @@
   set tabpagemax=15
   set background=dark
 
-  if has('gui_macvim')
-    colorscheme solarized
-  else
-    let g:solarized_termcolors=256
-    colorscheme solarized
-	  "colorscheme molokai
-  endif
-
   let g:solarized_termtrans=1
   let g:solarized_contrast='high'
   let g:solarized_visibility='high'
+  let g:solarized_termcolors=256
+
+  colorscheme solarized
 
   if has('cmdline_info')
     set ruler                   " show the ruler
