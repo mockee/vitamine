@@ -41,6 +41,7 @@
   NeoBundle 'ack.vim'                     " Plugin for the Perl module / CLI script 'ack'
   NeoBundle 'EasyMotion'                  " Vim motions on speed!
   NeoBundle 'taglist.vim'                 " Provides an overview of the structure of source code
+  NeoBundle 'UltiSnips'                   " The ultimate snippet solution for python enabled Vim
 
   " Auto-Installation
   if neobundle#exists_not_installed_bundles()
@@ -196,7 +197,7 @@
   let g:nerdtree_tabs_open_on_gui_startup = 0
 
   " open a NERDTree automatically when vim starts up if no files were specified
-  autocmd vimenter * if !argc() | NERDTree | endif
+  " autocmd vimenter * if !argc() | NERDTree | endif
 " }
 
 " SyntaxCheckers {
@@ -271,6 +272,10 @@
   " Compatible with `solarized` colorscheme
   hi link EasyMotionTarget ErrorMsg
   hi link EasyMotionShade  Comment
+" }
+
+" UltiSnips {
+  let g:UltiSnipsSnippetDirectories=["snippets"]
 " }
 
 " Autocmd {
