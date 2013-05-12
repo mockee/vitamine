@@ -51,5 +51,7 @@ Vim plugins, scripts and resources for my daily use.
   NeoBundle 'sudo.vim'                    " Allows one to edit a file with prevledges from an unprivledged session
   NeoBundle 'ack.vim'                     " Plugin for the Perl module / CLI script 'ack'
   NeoBundle 'EasyMotion'                  " Vim motions on speed!
+  NeoBundle 'taglist.vim'                 " Provides an overview of the structure of source code
+  NeoBundle 'UltiSnips'                   " The ultimate snippet solution for python enabled Vim
 " }
 ```
