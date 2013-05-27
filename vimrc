@@ -166,10 +166,12 @@
   nmap <leader>f9 :set foldlevel=9<CR>
 
   " Easy indent for code blocks
-  nmap <tab>    v>
-  nmap <s-tab>  v<
-  vmap <tab>    >gv
-  vmap <s-tab>  <gv
+  nmap <tab>      v>
+  nmap <c-tab>    v>
+  nmap <s-tab>    v<
+  vmap <tab>      >gv
+  vmap <c-tab>    >gv
+  vmap <s-tab>    <gv
 
   nnoremap / /\v
   vnoremap / /\v
