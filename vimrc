@@ -30,6 +30,7 @@
   NeoBundle 'hail2u/vim-css3-syntax'      " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
   NeoBundle 'skammer/vim-css-color'       " Highlight colors in css files
   NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
+  NeoBundle 'keitheis/vim-plim'           " Syntax Highlighting for Plim
   NeoBundle 'digitaltoad/vim-jade'        " Vim Jade template engine syntax highlighting and indention
   NeoBundle 'pangloss/vim-javascript'     " Vastly improved vim's javascript indentation
   NeoBundle 'plasticboy/vim-markdown'     " Syntax highlighting and matching rules for Markdown
