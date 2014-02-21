@@ -55,7 +55,7 @@
 " }
 
 " General {
-  syntax on                  " syntax highlighting
+  syntax enable                  " syntax highlighting
   filetype plugin indent on  " automatically detect file types
   set mouse=a                " automatically enable mouse usage
   set mousehide              " hide the mouse cursor while typing
