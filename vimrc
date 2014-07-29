@@ -33,6 +33,7 @@
   NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
   NeoBundle 'keitheis/vim-plim'           " Syntax Highlighting for Plim
   NeoBundle 'digitaltoad/vim-jade'        " Vim Jade template engine syntax highlighting and indention
+  NeoBundle 'mustache/vim-mustache-handlebars' " mustache and handlebars mode for vim
   NeoBundle 'pangloss/vim-javascript'     " Vastly improved vim's javascript indentation
   NeoBundle 'plasticboy/vim-markdown'     " Syntax highlighting and matching rules for Markdown
   NeoBundle 'tpope/vim-fugitive'          " A Git wrapper so awesome, it should be illegal
