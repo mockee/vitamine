@@ -29,7 +29,7 @@
   NeoBundle 'mattn/zencoding-vim'         " zen-coding for vim: http://code.google.com/p/zen-coding/
   NeoBundle 'ervandew/supertab'           " Perform all your vim insert mode completions with Tab
   NeoBundle 'hail2u/vim-css3-syntax'      " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
-  NeoBundle 'skammer/vim-css-color'       " Highlight colors in css files
+  NeoBundle 'ap/vim-css-color'            " Highlight colors in css files
   NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
   NeoBundle 'keitheis/vim-plim'           " Syntax Highlighting for Plim
   NeoBundle 'digitaltoad/vim-jade'        " Vim Jade template engine syntax highlighting and indention
@@ -291,6 +291,7 @@
 
 " Autocmd {
   autocmd! bufwritepost vimrc source ~/.vim/vimrc
+  au BufRead,BufNewFile *.tag :set filetype=jade
 " }
 
 " Taglist {
