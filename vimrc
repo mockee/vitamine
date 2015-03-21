@@ -26,7 +26,6 @@
   NeoBundle 'myusuf3/numbers.vim'         " A vim plugin for better line numbers
   NeoBundle 'Lokaltog/vim-powerline'      " The ultimate vim statusline utility
   NeoBundle 'Lokaltog/vim-easymotion'     " Vim motions on speed!
-  NeoBundle 'mattn/zencoding-vim'         " zen-coding for vim: http://code.google.com/p/zen-coding/
   NeoBundle 'ervandew/supertab'           " Perform all your vim insert mode completions with Tab
   NeoBundle 'hail2u/vim-css3-syntax'      " Add CSS3 syntax support to vim's built-in `syntax/css.vim`
   NeoBundle 'ap/vim-css-color'            " Highlight colors in css files
@@ -46,6 +45,7 @@
   NeoBundle 'ack.vim'                     " Plugin for the Perl module / CLI script 'ack'
   NeoBundle 'taglist.vim'                 " Provides an overview of the structure of source code
   NeoBundle 'UltiSnips'                   " The ultimate snippet solution for python enabled Vim
+  NeoBundle 'Emmet.vim'                   " vim plugins for HTML and CSS hi-speed coding
 
   " Auto-Installation
   if neobundle#exists_not_installed_bundles()
