@@ -19,6 +19,7 @@
   " Github Repos
   NeoBundle 'Shougo/vimproc'              " Interactive command execution
   NeoBundle 'Shougo/neocomplcache'        " Ultimate auto-completion system
+  NeoBundle 'Valloric/YouCompleteMe'      " A code-completion engine for Vim
   NeoBundle 'scrooloose/syntastic'        " Syntax checking hacks
   NeoBundle 'scrooloose/nerdtree'         " A tree explorer plugin
   NeoBundle 'scrooloose/nerdcommenter'    " Vim plugin for intensely orgasmic commenting
@@ -32,19 +33,19 @@
   NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
   NeoBundle 'keitheis/vim-plim'           " Syntax Highlighting for Plim
   NeoBundle 'digitaltoad/vim-jade'        " Vim Jade template engine syntax highlighting and indention
-  NeoBundle 'mustache/vim-mustache-handlebars' " mustache and handlebars mode for vim
   NeoBundle 'pangloss/vim-javascript'     " Vastly improved vim's javascript indentation
   NeoBundle 'plasticboy/vim-markdown'     " Syntax highlighting and matching rules for Markdown
   NeoBundle 'tpope/vim-fugitive'          " A Git wrapper so awesome, it should be illegal
   NeoBundle 'tpope/vim-surround'          " quoting/parenthesizing made simple
   NeoBundle 'rizzatti/funcoo.vim'
   NeoBundle 'rizzatti/dash.vim'           " Search Dash.app from Vim
+  NeoBundle 'SirVer/ultisnips'            " The ultimate snippet solution for Vim
+  NeoBundle 'honza/vim-snippets'          " vim-snipmate default snippets
 
   " Github `vim-scripts`
   NeoBundle 'sudo.vim'                    " Allows one to edit a file with prevledges from an unprivledged session
   NeoBundle 'ack.vim'                     " Plugin for the Perl module / CLI script 'ack'
   NeoBundle 'taglist.vim'                 " Provides an overview of the structure of source code
-  NeoBundle 'UltiSnips'                   " The ultimate snippet solution for python enabled Vim
   NeoBundle 'Emmet.vim'                   " vim plugins for HTML and CSS hi-speed coding
 
   " Auto-Installation
@@ -213,7 +214,7 @@
 
   let g:syntastic_python_checkers = ['flake8']
   let g:syntastic_python_flake8_args = '--ignore="E401,E501"'
-  let g:syntastic_javascript_jshint_conf = '~/.jshintrc'
+  let g:syntastic_javascript_jshint_args = '~/.jshintrc'
 " }
 
 " vimScript {
@@ -282,7 +283,9 @@
 " }
 
 " UltiSnips {
-  let g:UltiSnipsSnippetDirectories=["snippets"]
+  let g:UltiSnipsExpandTrigger="<c-tab>"
+  let g:UltiSnipsJumpForwardTrigger="<c-b>"
+  let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 " }
 
 " Dash {
