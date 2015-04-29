@@ -18,7 +18,6 @@
 
   " Github Repos
   NeoBundle 'Shougo/vimproc'              " Interactive command execution
-  NeoBundle 'Shougo/neocomplcache'        " Ultimate auto-completion system
   NeoBundle 'Valloric/YouCompleteMe'      " A code-completion engine for Vim
   NeoBundle 'scrooloose/syntastic'        " Syntax checking hacks
   NeoBundle 'scrooloose/nerdtree'         " A tree explorer plugin
@@ -221,15 +220,6 @@
   let g:html_indent_inctags = 'html,body,head,tbody'
   let g:html_indent_script1 = 'inc'
   let g:html_indent_style1 = 'inc'
-" }
-
-" neocomplcache {
-  let g:acp_enableAtStartup = 0
-  let g:neocomplcache_enable_at_startup = 1
-  let g:neocomplcache_enable_smart_case = 1
-  let g:neocomplcache_enable_camel_case_completion = 1
-  let g:neocomplcache_enable_underbar_completion = 1
-  let g:neocomplcache_min_syntax_length = 3
 " }
 
 " nerdcommenter {
