@@ -22,7 +22,7 @@
   NeoBundle 'scrooloose/syntastic'        " Syntax checking hacks
   NeoBundle 'scrooloose/nerdtree'         " A tree explorer plugin
   NeoBundle 'scrooloose/nerdcommenter'    " Vim plugin for intensely orgasmic commenting
-  NeoBundle 'kien/ctrlp.vim'              " Fuzzy file, buffer, mru, tag, etc finder
+  NeoBundle 'ctrlpvim/ctrlp.vim'          " Fuzzy file, buffer, mru, tag, etc finder
   NeoBundle 'myusuf3/numbers.vim'         " A vim plugin for better line numbers
   NeoBundle 'Lokaltog/vim-powerline'      " The ultimate vim statusline utility
   NeoBundle 'Lokaltog/vim-easymotion'     " Vim motions on speed!
@@ -285,6 +285,7 @@
 " Autocmd {
   autocmd! bufwritepost vimrc source ~/.vim/vimrc
   au BufRead,BufNewFile *.tag :set filetype=jade
+  au BufNewFile,BufRead *.es6 set filetype=javascript
 " }
 
 " Taglist {
