@@ -40,6 +40,8 @@
   NeoBundle 'rizzatti/dash.vim'           " Search Dash.app from Vim
   NeoBundle 'SirVer/ultisnips'            " The ultimate snippet solution for Vim
   NeoBundle 'honza/vim-snippets'          " vim-snipmate default snippets
+  NeoBundle 'othree/yajs.vim'             " Enhanced javascript syntax file for Vim
+  NeoBundle 'mxw/vim-jsx'                 " React JSX syntax highlighting and indenting for vim
 
   " Github `vim-scripts`
   NeoBundle 'sudo.vim'                    " Allows one to edit a file with prevledges from an unprivledged session
@@ -211,9 +213,22 @@
     \ 'mode': 'active',
     \ 'passive_filetypes': ['html','java'] }
 
+  set statusline+=%#warningmsg#
+  set statusline+=%{SyntasticStatuslineFlag()}
+  set statusline+=%*
+
   let g:syntastic_python_checkers = ['flake8']
   let g:syntastic_python_flake8_args = '--ignore="E401,E501"'
-  let g:syntastic_javascript_jshint_args = '~/.jshintrc'
+  let g:syntastic_javascript_eslint_args = "--no-eslintrc --config ~/.eslintrc.json"
+  let g:syntastic_always_populate_loc_list = 1
+  let g:syntastic_auto_loc_list = 1
+  let g:syntastic_check_on_open = 1
+  let g:syntastic_check_on_wq = 0
+  let g:syntastic_javascript_checkers = ['eslint']
+" }
+
+" JSX {
+  let g:jsx_ext_required = 0
 " }
 
 " vimScript {
