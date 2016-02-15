@@ -31,7 +31,7 @@ Vim plugins, scripts and resources for my daily use.
   'scrooloose/syntastic'        " Syntax checking hacks
   'scrooloose/nerdtree'         " A tree explorer plugin
   'scrooloose/nerdcommenter'    " Vim plugin for intensely orgasmic commenting
-  'kien/ctrlp.vim'              " Fuzzy file, buffer, mru, tag, etc finder
+  'ctrlpvim/ctrlp.vim'          " Fuzzy file, buffer, mru, tag, etc finder
   'myusuf3/numbers.vim'         " A vim plugin for better line numbers
   'Lokaltog/vim-powerline'      " The ultimate vim statusline utility
   'Lokaltog/vim-easymotion'     " Vim motions on speed!
@@ -49,6 +49,8 @@ Vim plugins, scripts and resources for my daily use.
   'rizzatti/dash.vim'           " Search Dash.app from Vim
   'SirVer/ultisnips'            " The ultimate snippet solution for Vim
   'honza/vim-snippets'          " vim-snipmate default snippets
+  'othree/yajs.vim'             " Enhanced javascript syntax file for Vim
+  'mxw/vim-jsx'                 " React JSX syntax highlighting and indenting for vim
 
   " Github `vim-scripts`
   'sudo.vim'                    " Allows one to edit a file with prevledges fr
