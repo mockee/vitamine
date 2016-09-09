@@ -31,7 +31,7 @@
   NeoBundle 'ap/vim-css-color'            " Highlight colors in css files
   NeoBundle 'wavded/vim-stylus'           " Syntax Highlighting for Stylus
   NeoBundle 'keitheis/vim-plim'           " Syntax Highlighting for Plim
-  NeoBundle 'digitaltoad/vim-jade'        " Vim Jade template engine syntax highlighting and indention
+  NeoBundle 'digitaltoad/vim-pug'         " Vim Pug (formerly Jade) template engine syntax highlighting and indention
   NeoBundle 'pangloss/vim-javascript'     " Vastly improved vim's javascript indentation
   NeoBundle 'plasticboy/vim-markdown'     " Syntax highlighting and matching rules for Markdown
   NeoBundle 'tpope/vim-fugitive'          " A Git wrapper so awesome, it should be illegal
@@ -40,6 +40,7 @@
   NeoBundle 'rizzatti/dash.vim'           " Search Dash.app from Vim
   NeoBundle 'SirVer/ultisnips'            " The ultimate snippet solution for Vim
   NeoBundle 'honza/vim-snippets'          " vim-snipmate default snippets
+  NeoBundle 'isRuslan/vim-es6'            " List of JavaScript ES6 snippets and syntax highlighting for vim.
   NeoBundle 'othree/yajs.vim'             " Enhanced javascript syntax file for Vim
   NeoBundle 'mxw/vim-jsx'                 " React JSX syntax highlighting and indenting for vim
 
@@ -58,7 +59,7 @@
 " }
 
 " General {
-  syntax enable                  " syntax highlighting
+  syntax enable              " syntax highlighting
   filetype plugin indent on  " automatically detect file types
   set mouse=a                " automatically enable mouse usage
   set mousehide              " hide the mouse cursor while typing
@@ -95,7 +96,6 @@
   " Remove trailing whitespaces and ^M chars
   autocmd BufWritePre <buffer> call StripTrailingWhitespace()
   autocmd FileType python setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
-  autocmd FileType java setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
   autocmd FileType xml setlocal expandtab shiftwidth=4 tabstop=4 softtabstop=4
 " }
 
