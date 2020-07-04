@@ -43,6 +43,7 @@
   NeoBundle 'isRuslan/vim-es6'            " List of JavaScript ES6 snippets and syntax highlighting for vim.
   NeoBundle 'othree/yajs.vim'             " Enhanced javascript syntax file for Vim
   NeoBundle 'mxw/vim-jsx'                 " React JSX syntax highlighting and indenting for vim
+  NeoBundle 'leafgarland/typescript-vim'
 
   " Github `vim-scripts`
   NeoBundle 'sudo.vim'                    " Allows one to edit a file with prevledges from an unprivledged session
@@ -60,6 +61,7 @@
 
 " General {
   syntax enable              " syntax highlighting
+  set term=xterm-256color    " enable color code
   filetype plugin indent on  " automatically detect file types
   set mouse=a                " automatically enable mouse usage
   set mousehide              " hide the mouse cursor while typing
@@ -236,6 +238,11 @@
   let g:html_indent_inctags = 'html,body,head,tbody'
   let g:html_indent_script1 = 'inc'
   let g:html_indent_style1 = 'inc'
+" }
+
+
+" indenting {
+  let g:typescript_indent_disable = 1
 " }
 
 " nerdcommenter {
