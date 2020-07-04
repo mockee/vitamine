@@ -90,10 +90,15 @@
   set shiftwidth=2                " use indents of 2 spaces
   set tabstop=2                   " an indentation every two columns
   set softtabstop=2               " let backspace delete indent
-  set diffopt+=iwhite,vertical    " ignore the difference of indents
   set matchpairs=(:),{:},[:],<:>
   set foldmethod=marker
   set colorcolumn=80
+
+  " ignore the difference of indents
+  if &diff
+    set diffopt-=internal
+    set diffopt+=iwhite,vertical
+  endif
 
   " Remove trailing whitespaces and ^M chars
   autocmd BufWritePre <buffer> call StripTrailingWhitespace()
